@@ -1,0 +1,31 @@
+﻿{
+  "title": "自动重连",
+  "version": 0.1,
+  "description": "在任务失败时自动重新开启下载",
+  "homepage": "https://github.com/tinyAdapter/proxyee-down-extension-autorestart/",
+  "hookScript": {
+    "script": "hook.js",
+    "events": [
+      {
+        "on": "error",
+        "matches": ["^.*$"],
+        "method": "onError"
+      }
+    ]
+  },
+  "settings": [
+    {
+      "name": "timeout",
+      "title": "超时时间",
+      "type": "Number",
+      "description": "设置任务失败多长时间后重新开启。设置过短的值容易导致UI异常。",
+      "value": 1000,
+      "options": {
+        "500ms": 500,
+        "1000ms": 1000,
+        "2000ms": 2000,
+        "5000ms": 5000
+      }
+    }
+  ]
+}
